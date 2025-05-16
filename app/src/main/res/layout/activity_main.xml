@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    tools:context=".MainActivity">
+
+    <!-- Üst Araç Çubuğu -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/toolbarBackground"
+        android:elevation="4dp"
+        app:elevation="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- Adres Çubuğu -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/addressBarContainer"
+                android:layout_width="0dp"
+                android:layout_height="46dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="12dp"
+                app:cardBackgroundColor="@color/addressBarBackground"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="0dp"
+                app:strokeColor="@color/addressBarBorder"
+                app:strokeWidth="1dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <!-- Menü Butonu -->
+                    <ImageButton
+                        android:id="@+id/menuOpenButton"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="Menü"
+                        android:padding="9dp"
+                        android:src="@drawable/ic_menu"
+                        android:tint="@color/iconTint"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <!-- Geri Butonu -->
+                    <ImageButton
+                        android:id="@+id/backButton"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="Geri"
+                        android:padding="9dp"
+                        android:src="@drawable/ic_arrow_back"
+                        android:tint="@color/iconTint"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/menuOpenButton"
+                        app:layout_constraintTop_toTopOf="parent" />
+                        
+                    <!-- İleri Butonu -->
+                    <ImageButton
+                        android:id="@+id/forwardButton"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="İleri"
+                        android:padding="9dp"
+                        android:src="@drawable/ic_arrow_forward"
+                        android:tint="@color/iconTint"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/backButton"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <!-- Adres Çubuğu (EditText) -->
+                    <EditText
+                        android:id="@+id/addressBar"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginEnd="4dp"
+                        android:background="@null"
+                        android:hint="Ara veya URL girin"
+                        android:imeOptions="actionGo"
+                        android:inputType="textUri"
+                        android:selectAllOnFocus="true"
+                        android:singleLine="true"
+                        android:textColor="@color/tabTextActive"
+                        android:textColorHint="@color/tabTextInactive"
+                        android:textSize="15sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/menuButton"
+                        app:layout_constraintStart_toEndOf="@+id/forwardButton"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <!-- Menü Butonu -->
+                    <ImageButton
+                        android:id="@+id/menuButton"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="Menü"
+                        android:padding="8dp"
+                        android:src="@drawable/ic_more_vert"
+                        android:tint="@color/iconTint"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+            
+            <!-- Sekmeleri ayıran çizgi -->
+            <View
+                android:id="@+id/tabsDivider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/dividerColor"
+                app:layout_constraintTop_toBottomOf="@+id/addressBarContainer" />
+
+            <!-- Sekmeler için RecyclerView -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/tabsRecyclerView"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:clipToPadding="false"
+                android:orientation="horizontal"
+                android:paddingStart="4dp"
+                android:paddingEnd="4dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/newTabButtonContainer"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tabsDivider"
+                tools:listitem="@layout/item_tab" />
+
+            <!-- Yeni Sekme Butonu -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/newTabButtonContainer"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_marginEnd="8dp"
+                app:cardBackgroundColor="@color/buttonPrimary"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="0dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tabsRecyclerView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tabsRecyclerView">
+                
+                <ImageButton
+                    android:id="@+id/newTabButton"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="Yeni Sekme"
+                    android:padding="6dp"
+                    android:tint="@color/buttonText"
+                    android:src="@drawable/ic_add" />
+            </com.google.android.material.card.MaterialCardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- Arama Menüsü Container - Sekmelerin altında -->
+    <LinearLayout
+        android:id="@+id/searchMenuContainer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout">
+        
+        <!-- QR Arama için TextInputLayout -->
+        <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_input_layout_qr"
+        android:layout_width="0dp"
+        android:layout_height="36dp"
+        android:layout_weight="1"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="6dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:boxBackgroundColor="@color/editTextBackground"
+            app:boxBackgroundMode="outline"
+            app:boxCornerRadiusBottomEnd="8dp"
+            app:boxCornerRadiusBottomStart="8dp"
+            app:boxCornerRadiusTopEnd="8dp"
+            app:boxCornerRadiusTopStart="8dp"
+            app:boxStrokeColor="@color/editTextStroke"
+            app:boxStrokeWidth="1dp"
+            app:endIconDrawable="@drawable/ic_search"
+            app:endIconMode="custom"
+            app:endIconTint="@color/iconTint"
+            app:hintEnabled="false">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/searchEditText1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:hint="QR Ara"
+                android:imeOptions="actionSearch"
+                android:inputType="text"
+                android:padding="8dp"
+                android:textColor="@color/tabTextActive"
+                android:textColorHint="@color/tabTextInactive"
+                android:textSize="12sp"
+                android:maxLength="20" />
+        </com.google.android.material.textfield.TextInputLayout>
+            
+        <!-- Arama butonu kaldırıldı - artık TextInputLayout ile birleştirildi -->
+        
+        <!-- Seri No Arama için TextInputLayout -->
+        <!-- Search Button Include -->
+        <include
+        layout="@layout/search_button_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="36dp" />
+        
+        <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/text_input_layout_sr"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_weight="1"
+                android:layout_marginStart="6dp"
+                android:layout_marginEnd="12dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:boxBackgroundColor="@color/editTextBackground"
+            app:boxBackgroundMode="outline"
+            app:boxCornerRadiusBottomEnd="8dp"
+            app:boxCornerRadiusBottomStart="8dp"
+            app:boxCornerRadiusTopEnd="8dp"
+            app:boxCornerRadiusTopStart="8dp"
+            app:boxStrokeColor="@color/editTextStroke"
+            app:boxStrokeWidth="1dp"
+            app:endIconDrawable="@drawable/ic_search"
+            app:endIconMode="custom"
+            app:endIconTint="@color/iconTint"
+            app:hintEnabled="false">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/searchEditText2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:hint="Seri No Ara"
+                android:imeOptions="actionSearch"
+                android:inputType="text"
+                android:padding="8dp"
+                android:textColor="@color/tabTextActive"
+                android:textColorHint="@color/tabTextInactive"
+                android:textSize="12sp"
+                android:maxLength="20" />
+        </com.google.android.material.textfield.TextInputLayout>
+            
+    </LinearLayout>
+
+    <!-- İçerik Alanı - ViewPager2 -->
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchMenuContainer" />
+
+    <!-- İlerleme Göstergesi -->
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:visibility="gone"
+        app:indicatorColor="@color/buttonPrimary"
+        app:trackColor="@color/editTextBackground"
+        app:trackThickness="3dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchMenuContainer" />
+
+    <!-- Açılır Kapanır Butonlar Container - Modern Floating Design -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/floating_buttons_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:cardBackgroundColor="@color/colorSurface"
+        app:cardCornerRadius="31dp"
+        app:cardElevation="8dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!-- Toggle Button - Menu açma/kapama butonu -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_toggle_buttons"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="8dp"
+                android:contentDescription="Butonları Göster/Gizle"
+                android:insetLeft="0dp"
+                android:insetTop="0dp"
+                android:insetRight="0dp"
+                android:insetBottom="0dp"
+                android:padding="0dp"
+                app:backgroundTint="@color/buttonPrimary"
+                app:cornerRadius="20dp"
+                app:elevation="2dp"
+                app:icon="@drawable/ic_menu"
+                app:iconGravity="textStart"
+                app:iconPadding="0dp"
+                app:iconSize="18dp"
+                app:iconTint="@color/buttonText" />
+
+            <!-- Açılabilir/kapanabilir menü bölümü -->
+            <HorizontalScrollView
+                android:id="@+id/buttons_scroll_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scrollbars="none"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:paddingStart="4dp"
+                android:paddingEnd="8dp"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:id="@+id/buttons_container"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+
+                    <!-- Ekipman Listesi Butonu -->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_equipment_list"
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:layout_marginEnd="8dp"
+                        android:backgroundTint="@android:color/transparent"
+                        android:contentDescription="Ekipman Listesi"
+                        android:insetLeft="0dp"
+                        android:insetTop="0dp"
+                        android:insetRight="0dp"
+                        android:insetBottom="0dp"
+                        android:text="E"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        android:textColor="#2196F3"
+                        app:cornerRadius="28dp"
+                        app:elevation="0dp" />
+
+                    <!-- Kontrol Listesi Butonu -->
+                    <FrameLayout
+                        android:layout_width="62dp"
+                        android:layout_height="56dp"
+                        android:layout_marginEnd="8dp">
+
+                        <TextView
+                            android:id="@+id/btn_control_list"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="PE"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:textColor="#FF5722"
+                            android:gravity="center"
+                            android:includeFontPadding="false"
+                            android:background="?attr/selectableItemBackgroundBorderless" />
+                    </FrameLayout>
+
+                    <!-- Kapsam Dışı Butonu -->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_scope_out"
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:layout_marginEnd="8dp"
+                        android:backgroundTint="@android:color/transparent"
+                        android:contentDescription="Kapsam Dışı"
+                        android:insetLeft="0dp"
+                        android:insetTop="0dp"
+                        android:insetRight="0dp"
+                        android:insetBottom="0dp"
+                        android:text="K"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        android:textColor="#4CAF50"
+                        app:cornerRadius="28dp"
+                        app:elevation="0dp" />
+
+                    <!-- Cihaz Ekle Butonu -->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_add_device"
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:layout_marginEnd="8dp"
+                        android:backgroundTint="@android:color/transparent"
+                        android:contentDescription="Cihaz Ekle"
+                        android:insetLeft="0dp"
+                        android:insetTop="0dp"
+                        android:insetRight="0dp"
+                        android:insetBottom="0dp"
+                        app:cornerRadius="28dp"
+                        app:elevation="0dp"
+                        app:icon="@drawable/ic_add"
+                        app:iconGravity="textStart"
+                        app:iconPadding="0dp"
+                        app:iconSize="28dp"
+                        app:iconTint="@color/buttonPrimary" />
+
+                    <!-- QR Tarama Butonu -->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_qr_scan"
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:backgroundTint="@android:color/transparent"
+                        android:contentDescription="QR Tarama"
+                        android:insetLeft="0dp"
+                        android:insetTop="0dp"
+                        android:insetRight="0dp"
+                        android:insetBottom="0dp"
+                        app:cornerRadius="28dp"
+                        app:elevation="0dp"
+                        app:icon="@drawable/ic_camera"
+                        app:iconGravity="textStart"
+                        app:iconPadding="0dp"
+                        app:iconSize="28dp"
+                        app:iconTint="@color/buttonPrimary" />
+                </LinearLayout>
+            </HorizontalScrollView>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

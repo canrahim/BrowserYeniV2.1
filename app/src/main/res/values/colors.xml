@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Renk tanımları - Karanlık Mod Uyumlu
+Referans: Material Design 3 Color System, Material Theme Builder
+-->
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    
+    <!-- Material Design 3 Ana Renkler - Açık Mod -->
+    <color name="colorPrimary">#4285F4</color>
+    <color name="colorOnPrimary">#FFFFFF</color>
+    <color name="colorPrimaryContainer">#E3F2FD</color>
+    <color name="colorOnPrimaryContainer">#001E3A</color>
+    
+    <!-- Yüzey Renkleri - Açık Mod -->
+    <color name="colorSurface">#FFFBFE</color>
+    <color name="colorOnSurface">#1C1B1F</color>
+    <color name="colorSurfaceVariant">#E7E0EC</color>
+    <color name="colorOnSurfaceVariant">#49454F</color>
+    
+    <!-- Hata Renkleri -->
+    <color name="colorError">#B3261E</color>
+    <color name="colorOnError">#FFFFFF</color>
+    <color name="colorErrorContainer">#F9DEDC</color>
+    <color name="colorOnErrorContainer">#410E0B</color>
+    
+    <!-- Arka Plan Renkleri - Açık Mod -->
+    <color name="colorBackground">#FFFBFE</color>
+    <color name="colorOnBackground">#1C1B1F</color>
+    
+    <!-- Eski tema renkleri (geriye uyumluluk için) -->
+    <color name="colorPrimaryDark">#3367D6</color>
+    <color name="colorAccent">#8AB4F8</color>
+    
+    <!-- Sekme renkleri -->
+    <color name="tabBackground">#FFFFFF</color>
+    <color name="tabBackgroundInactive">#F5F5F5</color>
+    <color name="tabBorderActive">#4285F4</color>
+    <color name="tabBorderInactive">#E0E0E0</color>
+    <color name="tabTextActive">#202124</color>
+    <color name="tabTextInactive">#5F6368</color>
+    
+    <!-- Arayüz renkleri -->
+    <color name="toolbarBackground">#FFFFFF</color>
+    <color name="addressBarBackground">#F8F9FA</color>
+    <color name="addressBarBorder">#DADCE0</color>
+    <color name="dividerColor">#E8EAED</color>
+    <color name="iconTint">#5F6368</color>
+    <color name="iconTintActive">#4285F4</color>
+    
+    <!-- EditText renkleri -->
+    <color name="editTextBackground">#FAFAFA</color>
+    <color name="editTextBorder">#E0E0E0</color>
+    <color name="editTextStroke">#5F6368</color>
+    
+    <!-- Buton renkleri - Modern Indigo Temaları -->
+    <color name="buttonPrimary">#6366F1</color>
+    <color name="buttonPrimaryHover">#4F46E5</color>
+    <color name="buttonText">#FFFFFF</color>
+    
+    <!-- PersonAdapter için eksik renkler -->
+    <color name="selected_item_bg">#E3F2FD</color>
+    <color name="highlighted_item_bg">#BBDEFB</color>
+    <color name="card_background">#FFFFFF</color>
+    <color name="text_primary">#212121</color>
+    <color name="text_secondary">#757575</color>
+    <color name="text_tertiary">#BDBDBD</color>
+    
+    <!-- Chip renkleri için -->
+    <color name="chip_background_color">#F5F5F5</color>
+</resources>

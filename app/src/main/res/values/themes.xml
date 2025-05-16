@@ -1,0 +1,53 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!--
+    Base application theme - Karanlık Mod Uyumlu
+    Referans: Material Design 3 Theme System, Android Material Theming Guide
+    -->
+    <style name="Base.Theme.AsforceBrowser" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Modern Material Design 3 renkler -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryContainer">@color/colorPrimaryContainer</item>
+        <item name="colorOnPrimaryContainer">@color/colorOnPrimaryContainer</item>
+        
+        <!-- Yüzey renkleri -->
+        <item name="colorSurface">@color/colorSurface</item>
+        <item name="colorOnSurface">@color/colorOnSurface</item>
+        <item name="colorSurfaceVariant">@color/colorSurfaceVariant</item>
+        <item name="colorOnSurfaceVariant">@color/colorOnSurfaceVariant</item>
+        
+        <!-- Hata renkleri -->
+        <item name="colorError">@color/colorError</item>
+        <item name="colorOnError">@color/colorOnError</item>
+        <item name="colorErrorContainer">@color/colorErrorContainer</item>
+        <item name="colorOnErrorContainer">@color/colorOnErrorContainer</item>
+        
+        <!-- Arka plan renkleri -->
+        <item name="android:colorBackground">@color/colorBackground</item>
+        <item name="colorOnBackground">@color/colorOnBackground</item>
+        
+        <!-- Sistem çubuğu renkleri (karanlık mod uyumlu) -->
+        <item name="android:statusBarColor">@color/colorSurface</item>
+        <item name="android:navigationBarColor">@color/colorSurface</item>
+        <item name="android:windowLightStatusBar">@bool/light_status_bar</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">@bool/light_navigation_bar</item>
+        
+        <!-- Diğer tema özellikleri -->
+        <item name="android:windowBackground">@color/colorBackground</item>
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:windowIsTranslucent">false</item>
+        
+        <!-- Material Component stilleri -->
+        <item name="materialAlertDialogTheme">@style/ThemeOverlay.Material3.Dialog.Alert</item>
+    </style>
+
+    <style name="Theme.AsforceBrowser" parent="Base.Theme.AsforceBrowser" />
+    
+    <!-- Dialog Teması - Modern ve karanlık mod uyumlu -->
+    <style name="Theme.AsforceBrowser.Dialog" parent="ThemeOverlay.Material3.Dialog">
+        <item name="colorSurface">@color/colorSurface</item>
+        <item name="colorOnSurface">@color/colorOnSurface</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+</resources>

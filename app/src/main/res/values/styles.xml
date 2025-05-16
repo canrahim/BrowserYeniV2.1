@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Uygulama başlangıç teması - splash screen gibi -->
+    <style name="SplashTheme" parent="Theme.AsforceBrowser">
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/favicon_web</item>
+        <item name="android:windowSplashScreenAnimationDuration">200</item>
+        <item name="android:windowSplashScreenIconBackgroundColor">@color/white</item>
+        <item name="android:windowBackground">@color/white</item>
+    </style>
+    
+    <!-- Sekme görünümü için özel stil -->
+    <style name="TabItemStyle">
+        <item name="android:background">@drawable/tab_background</item>
+        <item name="android:paddingStart">8dp</item>
+        <item name="android:paddingEnd">4dp</item>
+        <item name="android:elevation">0.5dp</item>
+    </style>
+    
+    <!-- Adres çubuğu stili -->
+    <style name="AddressBarStyle">
+        <item name="android:background">@color/addressBarBackground</item>
+        <item name="android:padding">8dp</item>
+    </style>
+    
+    <!-- Modern şekilli butonlar için stil -->
+    <style name="RoundedButtonStyle" parent="Widget.MaterialComponents.Button">
+        <item name="cornerRadius">24dp</item>
+        <item name="android:paddingStart">24dp</item>
+        <item name="android:paddingEnd">24dp</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    
+    <!-- Yuvarlatılmış köşeli TextInputLayout stili -->
+    <style name="RoundedTextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxCornerRadiusTopStart">12dp</item>
+        <item name="boxCornerRadiusTopEnd">12dp</item>
+        <item name="boxCornerRadiusBottomStart">12dp</item>
+        <item name="boxCornerRadiusBottomEnd">12dp</item>
+    </style>
+    
+    <!-- QR Scanner Dialog için tema (gelişmiş versiyon) -->
+    <style name="Theme.Dialog.QRScannerEnhanced" parent="Theme.AppCompat.Dialog">
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:backgroundDimAmount">0.7</item>
+        <item name="android:statusBarColor">@android:color/black</item>
+        <item name="android:navigationBarColor">@android:color/black</item>
+    </style>
+    
+    <!-- QR Scanner ışık modu butonları -->
+    <style name="QRScannerButton" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:foreground">?attr/selectableItemBackground</item>
+    </style>
+    
+    <!-- QR Scanner tarama işlemi animasyonu -->
+    <style name="QRScannerAnimation">
+        <item name="android:duration">2000</item>
+        <item name="android:repeatCount">infinite</item>
+        <item name="android:repeatMode">reverse</item>
+        <item name="android:interpolator">@android:interpolator/accelerate_decelerate</item>
+    </style>
+</resources>
