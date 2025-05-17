@@ -1,7 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
-    kotlin("kapt")
+    alias(libs.plugins.ksp)
     id("com.google.dagger.hilt.android")
 }
 
@@ -18,6 +18,13 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+    
+    // KSP için Room veritabanı şema yeri
+    ksp {
+        arg("room.schemaLocation", "$projectDir/schemas")
+        arg("room.incremental", "true")
+        arg("room.expandProjection", "true")
     }
     
     buildFeatures {
@@ -67,12 +74,12 @@ dependencies {
     
     // Hilt Dependency Injection
     implementation("com.google.dagger:hilt-android:2.48")
-    kapt("com.google.dagger:hilt-android-compiler:2.48")
+    ksp("com.google.dagger:hilt-android-compiler:2.48")
     
     // Room DB - Sekme ve gezinme geçmişi için
     implementation("androidx.room:room-runtime:2.6.1")
     implementation("androidx.room:room-ktx:2.6.1")
-    kapt("androidx.room:room-compiler:2.6.1")
+    ksp("androidx.room:room-compiler:2.6.1")
     
     // RecyclerView
     implementation("androidx.recyclerview:recyclerview:1.3.2")
@@ -85,7 +92,7 @@ dependencies {
     
     // Glide - Resim yükleme kütüphanesi (favicon için)
     implementation("com.github.bumptech.glide:glide:4.15.1")
-    kapt("com.github.bumptech.glide:compiler:4.15.1")
+    ksp("com.github.bumptech.glide:compiler:4.15.1")
     
     // JSoup - HTML parsing için (favicon URL'lerini bulmak için)
     implementation("org.jsoup:jsoup:1.16.1")
